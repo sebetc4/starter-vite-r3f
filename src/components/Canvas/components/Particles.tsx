@@ -1,12 +1,12 @@
-// Libs
-import { useRef, type FC } from 'react'
+import { type FC, useRef } from 'react'
+
 import { ShaderMaterial, Uniform } from 'three'
-// App
-import { createDataTexture, getUvs } from '@/functions/three.functions'
-// Glsl
+
+import { Gpgpu } from './Gpgpu'
+import { createDataTexture, getUvs } from '@/functions'
+
 import fragmentShader from '@/assets/shaders/render/fragment.glsl'
 import vertexShader from '@/assets/shaders/render/vertex.glsl'
-import { Gpgpu } from './Gpgpu'
 
 type ParticlesProps = {
     resolution: number

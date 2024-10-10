@@ -1,10 +1,10 @@
-// Libs
+import { type FC, memo } from 'react'
+
 import { OrbitControls } from '@react-three/drei'
 import { Canvas as FiberCanvas } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { Perf } from 'r3f-perf'
-import { type FC, memo } from 'react'
-// App
+
 import { Particles } from './components/Particles'
 
 const RESOLUTION = 512

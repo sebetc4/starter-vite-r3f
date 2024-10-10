@@ -1,6 +1,6 @@
-// Libs
-import { createPortal, useFrame } from '@react-three/fiber'
 import { type FC, type RefObject, useEffect, useMemo, useRef } from 'react'
+
+import { createPortal, useFrame } from '@react-three/fiber'
 import {
     type DataTexture,
     HalfFloatType,
@@ -12,11 +12,11 @@ import {
     Vector2,
     WebGLRenderTarget,
 } from 'three'
-// Types
+
 import type { RenderTargetArray } from '@/types/three.types'
-// GLSL
-import fragmentShader from '@/assets/shaders/sim/fragment.glsl'
-import vertexShader from '@/assets/shaders/sim/vertex.glsl'
+
+import fragmentShader from '@/assets/glsl/sim/fragment.glsl'
+import vertexShader from '@/assets/glsl/sim/vertex.glsl'
 
 type GpgpuProps = {
     renderMatRef: RefObject<ShaderMaterial>
@@ -42,7 +42,7 @@ export const Gpgpu: FC<GpgpuProps> = ({ renderMatRef, resolution, initDataTextur
                 type: HalfFloatType,
             }),
         ],
-        [resolution]
+        [resolution],
     )
 
     useFrame(({ gl, pointer, viewport }) => {
@@ -89,7 +89,7 @@ export const Gpgpu: FC<GpgpuProps> = ({ renderMatRef, resolution, initDataTextur
                         }}
                     />
                 </mesh>,
-                scene
+                scene,
             )}
         </>
     )
