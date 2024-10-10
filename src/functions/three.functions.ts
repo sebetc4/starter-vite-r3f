@@ -1,4 +1,4 @@
-import { DataTexture, FloatType, RGBAFormat } from "three"
+import { DataTexture, FloatType, RGBAFormat } from 'three'
 
 export const getUvs = (resolution: number) => {
     const count = resolution ** 2
