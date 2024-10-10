@@ -15,8 +15,8 @@ import {
 
 import type { RenderTargetArray } from '@/types/three.types'
 
-import fragmentShader from '@/assets/glsl/sim/fragment.glsl'
-import vertexShader from '@/assets/glsl/sim/vertex.glsl'
+import fragmentShader from '@/assets/shaders/sim/fragment.glsl'
+import vertexShader from '@/assets/shaders/sim/vertex.glsl'
 
 type GpgpuProps = {
     renderMatRef: RefObject<ShaderMaterial>
