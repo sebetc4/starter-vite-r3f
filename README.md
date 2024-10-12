@@ -4,23 +4,23 @@ This is a starter template that showcases how to integrate a custom GPGPU (Gener
 
 ## Features
 
-- 🌐 **React Three Fiber**: Integrates Three.js into the React ecosystem for building declarative 3D scenes.
-- 🛠 **TypeScript**: Includes TypeScript for strong typing and better development experience.
-- 🖼 **Shader Support**: Easily import and use GLSL shaders.
-- 🎛 **Leva**: Provides a beautiful and minimal UI for tweaking values in real-time.
-- 📊 **Performance Monitoring**: Built-in FPS and performance metrics using `r3f-perf`.
-- ⚡ **Vite**: Ultra-fast development server and build tool.
-- ✨ **ESLint + Prettier**: Pre-configured for code linting and formatting.
-  
+-   🌐 **React Three Fiber**: Integrates Three.js into the React ecosystem for building declarative 3D scenes.
+-   🛠 **TypeScript**: Includes TypeScript for strong typing and better development experience.
+-   🖼 **Shader Support**: Easily import and use GLSL shaders.
+-   🎛 **Leva**: Provides a beautiful and minimal UI for tweaking values in real-time.
+-   📊 **Performance Monitoring**: Built-in FPS and performance metrics using `r3f-perf`.
+-   ⚡ **Vite**: Ultra-fast development server and build tool.
+-   ✨ **ESLint + Prettier**: Pre-configured for code linting and formatting.
+
 ## Technologies Used
 
-- **[@react-three/fiber](https://github.com/pmndrs/react-three-fiber)**: React renderer for Three.js.
-- **[three](https://threejs.org/)**: Three.js library for 3D graphics.
-- **[@react-three/drei](https://github.com/pmndrs/drei)**: Useful helpers and abstractions for React Three Fiber.
-- **[leva](https://github.com/pmndrs/leva)**: A GUI control for tweaking values in your scene.
-- **[r3f-perf](https://github.com/utsuboco/r3f-perf)**: Real-time performance monitoring (FPS, memory usage, etc.).
-- **[vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl)**: Plugin for loading GLSL shaders in Vite.
-- **[TypeScript](https://www.typescriptlang.org/)**: Static type-checking for better development experience.
+-   **[@react-three/fiber](https://github.com/pmndrs/react-three-fiber)**: React renderer for Three.js.
+-   **[three](https://threejs.org/)**: Three.js library for 3D graphics.
+-   **[@react-three/drei](https://github.com/pmndrs/drei)**: Useful helpers and abstractions for React Three Fiber.
+-   **[leva](https://github.com/pmndrs/leva)**: A GUI control for tweaking values in your scene.
+-   **[r3f-perf](https://github.com/utsuboco/r3f-perf)**: Real-time performance monitoring (FPS, memory usage, etc.).
+-   **[vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl)**: Plugin for loading GLSL shaders in Vite.
+-   **[TypeScript](https://www.typescriptlang.org/)**: Static type-checking for better development experience.
 
 ## Installation
 
@@ -55,32 +55,27 @@ Shader Setup
 
 The system is built using GLSL shaders. It includes a simulation shader to compute particle movement, and a render shader to display the results. Here's how you can customize it:
 
-  1. Vertex Shader (vertex.glsl): Defines the particle positions.
-  2. Fragment Shader (fragment.glsl): Handles how particles are updated and rendered.
+1. Vertex Shader (vertex.glsl): Defines the particle positions.
+2. Fragment Shader (fragment.glsl): Handles how particles are updated and rendered.
 
 ```tsx
-import fragmentShader from '@/assets/shaders/sim/fragment.glsl';
-import vertexShader from '@/assets/shaders/sim/vertex.glsl';
+import fragmentShader from '@/assets/shaders/sim/fragment.glsl'
+import vertexShader from '@/assets/shaders/sim/vertex.glsl'
 ```
 
 ### GPGPU Component
 
 ```tsx
-<Gpgpu
-  renderMatRef={renderMatRef}
-  resolution={resolution}
-  initDataTexture={initDataTexture}
-/>
+<Gpgpu renderMatRef={renderMatRef} resolution={resolution} initDataTexture={initDataTexture} />
 ```
 
- - renderMatRef: Reference to the shader material used for rendering the particles.
- - resolution: Resolution of the simulation, which directly affects the number of particles.
- - initDataTexture: Initial texture used to store particle data.
+-   renderMatRef: Reference to the shader material used for rendering the particles.
+-   resolution: Resolution of the simulation, which directly affects the number of particles.
+-   initDataTexture: Initial texture used to store particle data.
 
 ### Customization
 
 You can modify the behavior of the particles by adjusting the shaders (fragment.glsl and vertex.glsl). Use uPointer and uCurrentPositions uniforms to interact with particle states and provide custom behaviors (e.g., mouse interaction or other animations).
-
 
 The Gpgpu component handles the simulation and particle updates using WebGL render targets. This enables highly efficient offscreen rendering:
 
