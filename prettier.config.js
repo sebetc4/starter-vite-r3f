@@ -1,6 +1,6 @@
 /** @type {import("prettier").Config} */
 export default {
-    plugins: ['@trivago/prettier-plugin-sort-imports','prettier-plugin-glsl'],
+    plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-glsl'],
     printWidth: 100,
     tabWidth: 4,
     semi: false,
