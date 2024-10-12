@@ -19,9 +19,9 @@ void main() {
 
     float pointerDistance = distance(currentPos, uPointer);
     float maxPointerDistance = 0.4;
-    if(pointerDistance < maxPointerDistance) {
+    if (pointerDistance < maxPointerDistance) {
         vec2 pointerDirection = normalize(currentPos - uPointer);
-        velocity += pointerDirection * ( 1.0 - pointerDistance ) * 0.01;
+        velocity += pointerDirection * (1.0 - pointerDistance) * 0.01;
     }
 
     currentPos += velocity;
