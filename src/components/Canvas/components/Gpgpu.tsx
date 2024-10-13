@@ -26,6 +26,7 @@ type GpgpuProps = {
 
 export const Gpgpu: FC<GpgpuProps> = ({ renderMatRef, resolution, initDataTexture }) => {
     const simMatRef = useRef<ShaderMaterial>(null)
+    const currentRenderTargetIndexRef = useRef(0)
     const scene = useMemo(() => new Scene(), [])
     const camera = useMemo(() => new OrthographicCamera(-1, 1, 1, -1, -1, 1), [])
 
@@ -48,6 +49,7 @@ export const Gpgpu: FC<GpgpuProps> = ({ renderMatRef, resolution, initDataTextur
     useFrame(({ gl, pointer, viewport }) => {
         const simMat = simMatRef.current
         const renderMat = renderMatRef.current
+        const currentRenderTargetIndex = currentRenderTargetIndexRef.current
 
         if (!simMat || !renderMat) return
 
@@ -56,14 +58,14 @@ export const Gpgpu: FC<GpgpuProps> = ({ renderMatRef, resolution, initDataTextur
         simMat.uniforms.uPointer.value.x = (pointer.x * width) / 2
         simMat.uniforms.uPointer.value.y = (pointer.y * height) / 2
 
-        gl.setRenderTarget(renderTargets[0])
+        gl.setRenderTarget(renderTargets[currentRenderTargetIndex])
         gl.render(scene, camera)
         gl.setRenderTarget(null)
 
-        renderMat.uniforms.uPositions.value = renderTargets[0].texture
-        simMat.uniforms.uCurrentPositions.value = renderTargets[0].texture
+        renderMat.uniforms.uPositions.value = renderTargets[currentRenderTargetIndex].texture
+        simMat.uniforms.uCurrentPositions.value = renderTargets[currentRenderTargetIndex].texture
 
-        renderTargets.reverse()
+        currentRenderTargetIndexRef.current = 1 - currentRenderTargetIndex
     })
 
     useEffect(() => {
