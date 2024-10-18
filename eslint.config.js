@@ -1,14 +1,16 @@
 import js from '@eslint/js'
 import prettier from 'eslint-config-prettier'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
 import pluginPrettier from 'eslint-plugin-prettier'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
     {
-        extends: [js.configs.recommended, ...tseslint.configs.recommended],
         files: ['**/*.{ts,tsx}'],
+        extends: [js.configs.recommended, ...tseslint.configs.recommended],
         languageOptions: {
             ecmaVersion: 2020,
             globals: globals.browser,
@@ -24,6 +26,7 @@ export default tseslint.config(
             'prettier/prettier': 'warn',
         },
     },
-    { ignores: ['dist', 'node_modules'] },
+    jsxA11y.flatConfigs.recommended,
     prettier,
+    { ignores: ['dist', 'node_modules'] },
 )
