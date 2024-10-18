@@ -1,4 +1,4 @@
-# React Three Fiber Particles with GPGPU
+# Starter Vite and React Three Fiber
 
 This is a starter template that showcases how to integrate a custom GPGPU (General-Purpose computing on Graphics Processing Units) system in a **React Three Fiber** environment and **TypeScript**. It allows efficient simulation and rendering of particle systems using shaders, WebGL render targets, and framebuffers.
 
@@ -27,7 +27,7 @@ This is a starter template that showcases how to integrate a custom GPGPU (Gener
 First, clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/sebetc4/starter-r3f-particles-with-gpgpu.git
+git clone https://github.com/sebetc4/starter-vite-r3f.git
 cd starter-r3f-particles
 npm install
 ```

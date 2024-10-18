@@ -7,6 +7,7 @@ export default {
     singleQuote: true,
     jsxSingleQuote: true,
     bracketSameLine: false,
+    singleAttributePerLine: true,
     importOrder: [
         '.*\\.(css|scss)$',
         '^react$',
